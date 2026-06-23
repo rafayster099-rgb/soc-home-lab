@@ -1,0 +1,142 @@
+<svg width="100%" viewBox="0 0 680 580" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5"
+    markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M2 1L8 5L2 9" fill="none" stroke="#666"
+      stroke-width="1.5" stroke-linecap="round"/>
+  </marker>
+</defs>
+
+<!-- Background -->
+<rect x="30" y="30" width="620" height="530" rx="16"
+  fill="#f8f8f8" stroke="#ccc" stroke-width="1"/>
+<text x="50" y="56" font-family="sans-serif" font-size="12"
+  fill="#888">Proxmox Hypervisor — 10.0.0.0/24</text>
+
+<!-- Internet -->
+<rect x="270" y="60" width="140" height="44" rx="22"
+  fill="#e8e8e8" stroke="#aaa" stroke-width="1"/>
+<text x="340" y="78" text-anchor="middle"
+  font-family="sans-serif" font-size="13" font-weight="600"
+  fill="#333">Internet</text>
+<text x="340" y="96" text-anchor="middle"
+  font-family="sans-serif" font-size="11" fill="#666">WAN</text>
+
+<!-- Internet to pfSense line -->
+<line x1="340" y1="104" x2="340" y2="152"
+  stroke="#888" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="352" y="132" font-family="sans-serif"
+  font-size="11" fill="#999">WAN</text>
+
+<!-- pfSense -->
+<rect x="230" y="152" width="220" height="68" rx="8"
+  fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+<text x="340" y="178" text-anchor="middle"
+  font-family="sans-serif" font-size="14" font-weight="600"
+  fill="#4c1d95">pfSense Firewall</text>
+<text x="340" y="200" text-anchor="middle"
+  font-family="sans-serif" font-size="11"
+  fill="#6d28d9">Gateway — 10.0.0.1 — VM 100</text>
+
+<!-- Trunk line down -->
+<line x1="340" y1="220" x2="340" y2="290"
+  stroke="#888" stroke-width="2"/>
+
+<!-- Horizontal bus -->
+<line x1="130" y1="290" x2="550" y2="290"
+  stroke="#888" stroke-width="2"/>
+
+<!-- Drop to Kali -->
+<line x1="130" y1="290" x2="130" y2="355"
+  stroke="#888" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<!-- Drop to Ubuntu -->
+<line x1="340" y1="290" x2="340" y2="355"
+  stroke="#888" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<!-- Drop to Windows -->
+<line x1="550" y1="290" x2="550" y2="355"
+  stroke="#888" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<!-- LAN label -->
+<text x="355" y="272" font-family="sans-serif"
+  font-size="11" fill="#999">LAN 10.0.0.0/24</text>
+
+<!-- Kali Linux -->
+<rect x="48" y="355" width="164" height="108" rx="8"
+  fill="#fef2f2" stroke="#dc2626" stroke-width="1"/>
+<text x="130" y="382" text-anchor="middle"
+  font-family="sans-serif" font-size="13" font-weight="600"
+  fill="#991b1b">Kali Linux</text>
+<text x="130" y="400" text-anchor="middle"
+  font-family="sans-serif" font-size="11"
+  fill="#b91c1c">10.0.0.10 — VM 101</text>
+<text x="130" y="418" text-anchor="middle"
+  font-family="sans-serif" font-size="11"
+  fill="#b91c1c">Attacker machine</text>
+<text x="130" y="436" text-anchor="middle"
+  font-family="sans-serif" font-size="11"
+  fill="#b91c1c">Hydra · Nmap · Metasploit</text>
+
+<!-- Ubuntu / Wazuh -->
+<rect x="258" y="355" width="164" height="108" rx="8"
+  fill="#eff6ff" stroke="#2563eb" stroke-width="1"/>
+<text x="340" y="382" text-anchor="middle"
+  font-family="sans-serif" font-size="13" font-weight="600"
+  fill="#1e3a8a">Ubuntu Server</text>
+<text x="340" y="400" text-anchor="middle"
+  font-family="sans-serif" font-size="11"
+  fill="#1d4ed8">10.0.0.11 — VM 102</text>
+<text x="340" y="418" text-anchor="middle"
+  font-family="sans-serif" font-size="11"
+  fill="#1d4ed8">Wazuh SIEM Manager</text>
+<text x="340" y="436" text-anchor="middle"
+  font-family="sans-serif" font-size="11"
+  fill="#1d4ed8">Port 1514 · Dashboard :443</text>
+
+<!-- Windows Server -->
+<rect x="468" y="355" width="164" height="108" rx="8"
+  fill="#fffbeb" stroke="#d97706" stroke-width="1"/>
+<text x="550" y="382" text-anchor="middle"
+  font-family="sans-serif" font-size="13" font-weight="600"
+  fill="#78350f">Windows Server 2012</text>
+<text x="550" y="400" text-anchor="middle"
+  font-family="sans-serif" font-size="11"
+  fill="#92400e">10.0.0.13 — VM 103</text>
+<text x="550" y="418" text-anchor="middle"
+  font-family="sans-serif" font-size="11"
+  fill="#92400e">Target + Wazuh Agent</text>
+<text x="550" y="436" text-anchor="middle"
+  font-family="sans-serif" font-size="11"
+  fill="#92400e">RDP :3389 · SMB :445</text>
+
+<!-- Attack path: Kali → Windows (red dashed arc) -->
+<path d="M212 415 Q340 490 468 415"
+  stroke="#dc2626" stroke-width="1.5"
+  stroke-dasharray="5 3" fill="none"
+  marker-end="url(#arrow)"/>
+<text x="340" y="484" text-anchor="middle"
+  font-family="sans-serif" font-size="11"
+  fill="#dc2626">Brute force — Hydra → RDP :3389</text>
+
+<!-- Log forwarding: Windows → Ubuntu (blue dashed) -->
+<path d="M468 430 Q420 510 360 460"
+  stroke="#2563eb" stroke-width="1.5"
+  stroke-dasharray="5 3" fill="none"
+  marker-end="url(#arrow)"/>
+<text x="390" y="525" text-anchor="middle"
+  font-family="sans-serif" font-size="11"
+  fill="#2563eb">Log forwarding — UDP 1514</text>
+
+<!-- Legend -->
+<rect x="48" y="490" width="10" height="10" fill="#dc2626"/>
+<text x="64" y="500" font-family="sans-serif"
+  font-size="11" fill="#666">Attack path</text>
+<rect x="148" y="490" width="10" height="10" fill="#2563eb"/>
+<text x="164" y="500" font-family="sans-serif"
+  font-size="11" fill="#666">Log forwarding</text>
+<line x1="264" y1="495" x2="284" y2="495"
+  stroke="#888" stroke-width="2"/>
+<text x="290" y="500" font-family="sans-serif"
+  font-size="11" fill="#666">Network connection</text>
+</svg>
