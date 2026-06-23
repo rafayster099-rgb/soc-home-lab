@@ -15,7 +15,7 @@ All attacks are simulated in an isolated lab environment.
 
 ## Network Diagram
 
-![Network Diagram](network-diagram.png)
+![Network Diagram](network-diagram.svg)
 
 ---
 
