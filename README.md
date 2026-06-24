@@ -57,7 +57,7 @@ All attacks are simulated in an isolated lab environment.
 | # | Project | Status |
 |---|---------|--------|
 | 1 | SIEM Pipeline — Wazuh deployment and agent configuration | ✅ Complete |
-| 2 | RDP Brute Force Detection — Hydra attack detected by Wazuh | ✅ Complete |
+| 2 | [RDP Brute Force Detection](brute-force-detection/) — Hydra → Wazuh, MITRE T1110 | ✅ Complete |
 | 3 | Recon Detection — Nmap scan detected by Wazuh | 🔄 In Progress |
 | 4 | Incident Report Writing | 🔄 Coming Soon |
 | 5 | Alert Tuning — reduce false positives | 🔄 Coming Soon |
