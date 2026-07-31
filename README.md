@@ -80,7 +80,7 @@ All attacks are simulated in an isolated lab environment.
 
 | Certification | Status |
 |---------------|--------|
-| CompTIA Security+ SY0-701 | 🔄 In Progress — target July 2026 |
+| CompTIA Security+ SY0-701 | CERTIFIED |
 | CompTIA CySA+ | 📋 Planned post-employment |
 
 ---
